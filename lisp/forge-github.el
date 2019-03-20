@@ -92,7 +92,7 @@ repositories.
          (forge--git-fetch buf dir repo)))
      `((issues-until       . ,(forge--topics-until repo until 'issue))
        (pullRequests-until . ,(forge--topics-until repo until 'pullreq)))
-     :auth 'forge)))
+     :auth 'forge :host (oref repo apihost))))
 
 (cl-defmethod forge--pull-pullreq ((repo forge-github-repository) pullreq)
   ;; This function is only required because of a Github bug:
